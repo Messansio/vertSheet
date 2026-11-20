@@ -1,0 +1,10 @@
+# normalise line endings in the repository (LF), native endings on checkout
+* text=auto
+
+*.png binary
+*.ico binary
+*.pdf binary
+*.mscz binary
+*.mxl binary
+*.zip binary
+*.exe binary

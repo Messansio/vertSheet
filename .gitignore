@@ -1,0 +1,28 @@
+# build output (tools/build_windows.py)
+build/
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# your own scores and their conversions: keep them in local/ (never committed)
+local/
+/*.mscz
+/*.mscx
+/*.musicxml
+/*.mxl
+/*.pdf
+/*.svg
+/*.html
+*_vertical*
+!examples/demo_vertical.pdf
+
+# editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
