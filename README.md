@@ -36,22 +36,22 @@ PDF/SVG writers. It comes as a Windows program with a graphical interface and
 an installation wizard, and as a command-line tool. See
 [examples/demo_vertical.pdf](examples/demo_vertical.pdf) for a result.
 
-## Guida rapida (italiano)
+## Quick start (Windows)
 
-1. Scarica **`vertSheet-Setup-1.0.0.exe`** dalla pagina
-   [Releases](../../releases/latest), avvialo e segui l'installazione guidata
-   (non servono permessi di amministratore). In alternativa scarica
-   `vertSheet-1.0.0-portable.zip`, estrailo e avvia `vertSheet.exe`.
-   Se Windows mostra «Windows ha protetto il PC» (il programma non è firmato
-   digitalmente), scegli *Ulteriori informazioni* ▸ *Esegui comunque*.
-2. Apri vertSheet dal menu Start o dal desktop, poi **Apri spartito…**
-   (file MuseScore `.mscz`/`.mscx` o MusicXML), oppure fai clic destro su uno
-   spartito ▸ *Apri con* ▸ vertSheet.
-3. Regola l'impaginazione a sinistra (coppie di colonne, formato pagina, linee
-   divisorie, spaziatura…): l'anteprima a destra si aggiorna da sola.
-4. **Converti e salva…** crea il PDF (oppure SVG o HTML).
+1. Download **`vertSheet-Setup-1.0.0.exe`** from the
+   [Releases](../../releases/latest) page, run it and follow the installation
+   wizard (no administrator rights needed). Or download
+   `vertSheet-1.0.0-portable.zip`, unzip it and run `vertSheet.exe`.
+   If Windows says "Windows protected your PC" (the program is not digitally
+   signed), choose *More info* > *Run anyway*.
+2. Start vertSheet from the Start menu or the desktop and click
+   **Open score…** (a MuseScore `.mscz`/`.mscx` or MusicXML file), or
+   right-click a score > *Open with* > vertSheet.
+3. Adjust the layout on the left (column pairs, page size, divider lines,
+   spacing…): the preview on the right updates by itself.
+4. **Convert and save…** writes the PDF (or SVG or HTML).
 
-Per disinstallare: Impostazioni ▸ App ▸ App installate ▸ vertSheet ▸ Disinstalla.
+To uninstall: Settings > Apps > Installed apps > vertSheet > Uninstall.
 
 ## The Windows program
 
@@ -72,8 +72,8 @@ preview of the vertical pages on the right:
 The preview is drawn natively (page navigation with PgUp/PgDn or the mouse
 wheel, zoom with Ctrl+wheel or Ctrl +/-, fit page / fit width). Layout runs in
 the background, so the window stays responsive with long scores. The interface
-is in Italian and English (Language menu; detected automatically), and the
-engraved hand labels follow it (M.S./M.D. or L.H./R.H.). Settings and recent
+is in English and Italian (Language menu; detected automatically), and the
+engraved hand labels follow it (L.H./R.H., or the Italian M.S./M.D.). Settings and recent
 files are remembered in `%APPDATA%\vertSheet\settings.json`.
 
 ### Installation wizard
