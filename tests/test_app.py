@@ -34,9 +34,12 @@ def fields(text: str):
 
 class I18nTests(unittest.TestCase):
     def test_same_keys_and_placeholders(self):
-        self.assertEqual(set(i18n.IT), set(i18n.EN))
-        for key in i18n.IT:
-            self.assertEqual(fields(i18n.IT[key]), fields(i18n.EN[key]), key)
+        for dictionary in (i18n.IT, i18n.EN, i18n.FR):
+            self.assertEqual(set(dictionary), set(i18n.EN))
+        for key in i18n.EN:
+            placeholders = fields(i18n.EN[key])
+            self.assertEqual(fields(i18n.IT[key]), placeholders, key)
+            self.assertEqual(fields(i18n.FR[key]), placeholders, key)
 
     def test_switch_language(self):
         old = i18n.get_language()
@@ -45,6 +48,8 @@ class I18nTests(unittest.TestCase):
             self.assertEqual(i18n.tr("tb.page", i=2, n=5), "Pagina 2 di 5")
             i18n.set_language("en")
             self.assertEqual(i18n.tr("tb.page", i=2, n=5), "Page 2 of 5")
+            i18n.set_language("fr")
+            self.assertEqual(i18n.tr("tb.page", i=2, n=5), "Page 2 sur 5")
             self.assertEqual(i18n.set_language("xx"), "en")
         finally:
             i18n.set_language(old)

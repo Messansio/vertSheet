@@ -18,6 +18,7 @@ classifiers = [
     "Intended Audience :: End Users/Desktop",
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
+    "Natural Language :: French",
     "Natural Language :: Italian",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",

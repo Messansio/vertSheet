@@ -15,8 +15,8 @@ after every pair.
   hand labels, title / composer override, splitting a single staff between the
   hands.
 - Export to PDF, SVG (one file per page) or HTML.
-- Italian and English interface (detected automatically); the engraved hand
-  labels follow the language (M.S./M.D. or L.H./R.H.).
+- Italian, English and French interface (detected automatically); the engraved hand
+  labels follow the language (M.S./M.D., L.H./R.H. or M.G./M.D.).
 - Remembers settings and recent files; opens scores passed by "Open with".
 
 ### Installation

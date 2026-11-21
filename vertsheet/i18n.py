@@ -1,4 +1,4 @@
-"""User-interface strings (Italian and English).
+"""User-interface strings (Italian, English and French).
 
 ``tr(key, **fields)`` returns the string for the current language, formatted
 with ``fields``. The language is detected from Windows / the locale and can be
@@ -11,7 +11,7 @@ import os
 import sys
 from typing import Dict
 
-LANGUAGES = {"it": "Italiano", "en": "English"}
+LANGUAGES = {"it": "Italiano", "en": "English", "fr": "Français"}
 
 IT: Dict[str, str] = {
     # ------------------------------------------------------------ application
@@ -424,27 +424,246 @@ EN: Dict[str, str] = {
     "uni.error": "Uninstalling failed:\n\n{msg}",
 }
 
-STRINGS = {"it": IT, "en": EN}
+FR: Dict[str, str] = {
+    "app.tagline": "Partitions de piano à lire verticalement",
+    "menu.file": "Fichier",
+    "menu.open": "Ouvrir une partition…",
+    "menu.recent": "Ouvrir un fichier récent",
+    "menu.recent.empty": "(aucun fichier récent)",
+    "menu.recent.clear": "Effacer la liste",
+    "menu.export": "Convertir et enregistrer…",
+    "menu.quit": "Quitter",
+    "menu.view": "Affichage",
+    "menu.prev": "Page précédente",
+    "menu.next": "Page suivante",
+    "menu.zoom_in": "Zoom avant",
+    "menu.zoom_out": "Zoom arrière",
+    "menu.fit_page": "Adapter à la page",
+    "menu.fit_width": "Adapter à la largeur",
+    "menu.actual": "Taille réelle",
+    "menu.refresh": "Actualiser l'aperçu",
+    "menu.language": "Langue",
+    "menu.help": "Aide",
+    "menu.howto": "Comment lire une partition verticale",
+    "menu.formats": "Formats pris en charge",
+    "menu.about": "À propos de vertSheet",
+    "sec.score": "1 · Partition",
+    "sec.layout": "2 · Mise en page",
+    "sec.hands": "3 · Mains",
+    "sec.titles": "4 · Titres",
+    "sec.export": "5 · Exporter",
+    "score.none": "Aucune partition ouverte",
+    "score.browse": "Parcourir…",
+    "score.info": "{measures} mesures · {pages} pages · {pairs} paires de colonnes",
+    "score.hands": "Mains : {desc}",
+    "score.staff": "Interligne : {sp} pt",
+    "layout.pairs": "Paires de colonnes par page",
+    "layout.page": "Format de page",
+    "layout.landscape": "Paysage",
+    "layout.divider": "Lignes séparatrices",
+    "divider.after": "Après chaque paire",
+    "divider.between": "Uniquement entre les paires",
+    "divider.none": "Aucune",
+    "layout.symbols": "Symboles",
+    "symbols.rot": "Pivotés avec la portée",
+    "symbols.upright": "Verticaux",
+    "layout.numbers": "Numéros de mesure",
+    "numbers.all": "Tous",
+    "numbers.system": "Début de chaque colonne",
+    "numbers.none": "Aucun",
+    "layout.spacing": "Espacement des notes",
+    "layout.staff": "Taille de la portée",
+    "layout.staff_auto": "Automatique",
+    "layout.labels": "Noms des mains (M.G. / M.D.)",
+    "layout.justify": "Étendre la dernière colonne jusqu'en bas de page",
+    "hands.auto": "Automatique (d'après le fichier)",
+    "hands.split": "Diviser une portée unique à la hauteur",
+    "hands.hint": "Les notes à cette hauteur ou au-dessus vont à la main droite (Do4 = do central).",
+    "titles.title": "Titre",
+    "titles.composer": "Compositeur",
+    "titles.hint": "Laissez vide pour utiliser ceux de la partition.",
+    "export.format": "Format",
+    "format.pdf": "PDF (recommandé)",
+    "format.svg": "SVG (un fichier par page)",
+    "format.html": "HTML (page Web)",
+    "export.button": "Convertir et enregistrer…",
+    "export.open": "Ouvrir le fichier",
+    "export.folder": "Afficher le dossier",
+    "export.saved": "Enregistré : {name}",
+    "hand.lh": "M.G.",
+    "hand.rh": "M.D.",
+    "tb.page": "Page {i} sur {n}",
+    "tb.save": "Enregistrer…",
+    "tb.zoom": "{pct} %",
+    "welcome.title": "Transformez une partition en partition verticale",
+    "welcome.body": "•  Le temps se lit du haut vers le bas de la page\n"
+                    "•  Jusqu'à 3 paires de colonnes par page, de gauche à droite\n"
+                    "•  Dans chaque paire : main gauche à gauche, main droite à droite\n"
+                    "•  Une ligne séparatrice après chaque paire",
+    "welcome.open": "Ouvrir une partition…",
+    "welcome.formats": "MuseScore (.mscz, .mscx)  ·  MusicXML (.musicxml, .xml, .mxl)",
+    "welcome.recent": "Récents :",
+    "preview.busy": "Mise en page de la partition…",
+    "preview.error": "Impossible d'afficher l'aperçu",
+    "status.ready": "Prêt. Ouvrez une partition pour commencer.",
+    "status.loading": "Traitement de « {name} »…",
+    "status.done": "{name} : {measures} mesures sur {pages} pages ({secs} s)",
+    "status.error": "Erreur : {msg}",
+    "status.exporting": "Enregistrement…",
+    "status.saved": "{n} fichiers enregistrés dans {folder}",
+    "status.saved1": "{name} enregistré",
+    "dlg.open": "Ouvrir une partition",
+    "dlg.export": "Enregistrer la partition verticale",
+    "ft.scores": "Partitions",
+    "ft.all": "Tous les fichiers",
+    "err.title": "vertSheet – erreur",
+    "err.notfound": "Fichier introuvable :\n{path}",
+    "err.omr": "Ce fichier est un PDF ou une image de partition imprimée : sa lecture nécessite "
+               "un logiciel de reconnaissance optique de musique (OMR).\n\n"
+               "Installez Audiveris (gratuit) : vertSheet l'utilisera automatiquement. Sinon, "
+               "convertissez la partition au format MusicXML avec MuseScore, PlayScore ou "
+               "SmartScore, puis ouvrez le fichier .musicxml.",
+    "err.omr_link": "Ouvrir le site Web d'Audiveris ?",
+    "err.musescore": "Les fichiers {ext} doivent d'abord être convertis par MuseScore, qui n'est pas installé.\n\n"
+                     "Installez MuseScore (gratuit) ou exportez la partition au format MusicXML "
+                     "(Fichier ▸ Exporter ▸ MusicXML).",
+    "err.read": "Impossible de lire la partition :\n{msg}",
+    "err.convert": "Échec de la conversion :\n{msg}",
+    "err.generic": "Une erreur inattendue s'est produite :\n{msg}",
+    "err.pitch": "Hauteur de note invalide « {text} » (exemples : Do4, F#3, Sib2)",
+    "err.save": "Impossible d'enregistrer le fichier :\n{msg}",
+    "help.howto.body": "Comment lire la partition\n\n"
+                       "1.  Chaque page contient jusqu'à 3 paires de colonnes. Lisez la première "
+                       "paire (à gauche) du haut vers le bas, puis la deuxième, puis la troisième, "
+                       "avant de tourner la page.\n\n"
+                       "2.  Dans chaque paire, la colonne de gauche correspond à la main gauche "
+                       "(M.G.) et celle de droite à la main droite (M.D.). Les portées sont "
+                       "pivotées : les notes aiguës se trouvent plus à droite, comme sur le clavier.\n\n"
+                       "3.  Les deux mains utilisent la même grille temporelle : les notes à la "
+                       "même hauteur sont jouées ensemble. Les barres de mesure traversent toute "
+                       "la paire.\n\n"
+                       "4.  Une ligne grise sépare une paire de la suivante.",
+    "help.formats.body": "Formats pris en charge\n\n"
+                         "Lecture directe :\n"
+                         "•  MuseScore 1, 2, 3 et 4 (.mscz, .mscx)\n"
+                         "•  MusicXML (.musicxml, .xml, .mxl)\n\n"
+                         "Avec MuseScore installé :\n"
+                         "•  MIDI (.mid, .midi), Guitar Pro, Capella et autres\n\n"
+                         "Avec Audiveris installé (reconnaissance optique) :\n"
+                         "•  PDF et images de partitions imprimées (.pdf, .png, .jpg, .tif)\n\n"
+                         "Sortie : PDF, SVG (une page par fichier) ou HTML.",
+    "about.body": "vertSheet {version}\n\n"
+                  "Réorganise les partitions de piano pour une lecture verticale.\n\n"
+                  "Aucune bibliothèque tierce : les lecteurs MusicXML et MuseScore, la mise en "
+                  "page, les symboles musicaux et la génération PDF sont entièrement écrits en "
+                  "Python.\n\n"
+                  "Python {py}  ·  Tk {tk}",
+    "wiz.title": "Installation de vertSheet",
+    "wiz.back": "< Précédent",
+    "wiz.next": "Suivant >",
+    "wiz.install": "Installer",
+    "wiz.finish": "Terminer",
+    "wiz.cancel": "Annuler",
+    "wiz.cancel_confirm": "Voulez-vous vraiment quitter l'installation ?\nvertSheet ne sera pas installé.",
+    "wiz.language": "Langue :",
+    "wiz.welcome.title": "Bienvenue dans l'installation de vertSheet {version}",
+    "wiz.welcome.body": "Cet assistant va installer vertSheet sur votre ordinateur.\n\n"
+                        "vertSheet transforme les partitions de piano (MuseScore, MusicXML) en "
+                        "partitions à lire verticalement : le temps se lit de haut en bas, avec "
+                        "jusqu'à 3 paires de colonnes main gauche / main droite par page.\n\n"
+                        "Aucun droit administrateur n'est requis.\n\n"
+                        "Cliquez sur Suivant pour continuer.",
+    "wiz.welcome.upgrade": "La version {old} est déjà installée : elle sera mise à jour vers la version {new}.",
+    "wiz.dir.title": "Dossier de destination",
+    "wiz.dir.sub": "Où vertSheet doit-il être installé ?",
+    "wiz.dir.body": "vertSheet sera installé dans le dossier suivant.\n"
+                    "Pour choisir un autre dossier, cliquez sur Parcourir.",
+    "wiz.dir.browse": "Parcourir…",
+    "wiz.dir.required": "Espace requis : {size}",
+    "wiz.dir.free": "Espace disponible : {size}",
+    "wiz.dir.nonempty": "Le dossier « {path} » existe déjà et contient d'autres fichiers.\n\n"
+                        "Installer quand même vertSheet dans ce dossier ?",
+    "wiz.dir.invalid": "Veuillez choisir un dossier valide (un chemin complet, par exemple C:\\Program Files\\vertSheet).",
+    "wiz.dir.nospace": "L'espace libre est insuffisant sur le lecteur sélectionné.",
+    "wiz.dir.noperm": "Vous n'avez pas l'autorisation d'écrire dans ce dossier.\n\n"
+                      "Choisissez-en un autre (par exemple dans votre dossier utilisateur) ou "
+                      "lancez l'installation en tant qu'administrateur.",
+    "wiz.opts.title": "Options supplémentaires",
+    "wiz.opts.sub": "Choisissez les opérations à effectuer en plus de la copie des fichiers.",
+    "wiz.opts.desktop": "Créer un raccourci sur le bureau",
+    "wiz.opts.startmenu": "Créer un raccourci dans le menu Démarrer",
+    "wiz.opts.assoc": "Ajouter vertSheet à « Ouvrir avec » pour les fichiers .mscz, .mscx, .musicxml et .mxl",
+    "wiz.opts.assoc_hint": "Vos applications par défaut ne seront pas modifiées.",
+    "wiz.opts.path": "Ajouter la commande « vertsheet-cli » au PATH (invite de commandes)",
+    "wiz.ready.title": "Prêt à installer",
+    "wiz.ready.sub": "Vérifiez les paramètres puis cliquez sur Installer.",
+    "wiz.ready.dir": "Dossier de destination :",
+    "wiz.ready.tasks": "Tâches :",
+    "wiz.ready.copy": "Copie des fichiers du programme ({size})",
+    "wiz.ready.uninstall": "Inscription dans « Applications installées » pour permettre la désinstallation",
+    "wiz.progress.title": "Installation en cours",
+    "wiz.progress.sub": "Veuillez patienter pendant l'installation de vertSheet sur votre ordinateur.",
+    "wiz.step.prepare": "Préparation…",
+    "wiz.step.remove_old": "Suppression de la version précédente…",
+    "wiz.step.extract": "Extraction : {name}",
+    "wiz.step.shortcuts": "Création des raccourcis…",
+    "wiz.step.register": "Enregistrement dans Windows…",
+    "wiz.step.done": "Terminé.",
+    "wiz.error": "Échec de l'installation :\n\n{msg}",
+    "wiz.running": "vertSheet est ouvert : fermez-le puis réessayez.",
+    "wiz.done.title": "Installation terminée",
+    "wiz.done.body": "vertSheet {version} a été installé.\n\n"
+                     "Lancez-le depuis le menu Démarrer, depuis le raccourci bureau ou en cliquant "
+                     "avec le bouton droit sur une partition ▸ Ouvrir avec ▸ vertSheet.\n\n"
+                     "Pour le désinstaller : Paramètres ▸ Applications ▸ Applications installées ▸ vertSheet.",
+    "wiz.done.launch": "Lancer vertSheet maintenant",
+    "shortcut.desc": "Partitions de piano à lire verticalement",
+    "assoc.desc": "Partition (vertSheet)",
+    "uni.title": "Désinstaller vertSheet",
+    "uni.confirm": "Voulez-vous supprimer complètement vertSheet {version} de cet ordinateur ?\n\n"
+                   "Le programme, ses raccourcis et les entrées du registre créées lors de "
+                   "l'installation seront supprimés. Vos partitions ne seront pas touchées.",
+    "uni.done": "vertSheet a été supprimé de votre ordinateur.",
+    "uni.notfound": "Aucune installation de vertSheet n'a été trouvée dans ce dossier.",
+    "uni.error": "Échec de la désinstallation :\n\n{msg}",
+}
+
+STRINGS = {"it": IT, "en": EN, "fr": FR}
 _lang = "en"
 
 
 def detect_language() -> str:
-    """'it' when the Windows UI language or the locale is Italian, else 'en'."""
+    """Detect Italian, French or English from the Windows UI language or locale."""
     if sys.platform == "win32":
         try:
             import ctypes
             lang_id = ctypes.windll.kernel32.GetUserDefaultUILanguage()
-            return "it" if (lang_id & 0x3FF) == 0x10 else "en"
+            primary = lang_id & 0x3FF
+            if primary == 0x10:
+                return "it"
+            if primary == 0x0C:
+                return "fr"
+            return "en"
         except (AttributeError, OSError):
             pass
     for var in ("LC_ALL", "LC_MESSAGES", "LANG"):
         if os.environ.get(var):
-            return "it" if os.environ[var].lower().startswith("it") else "en"
+            loc = os.environ[var].lower()
+            if loc.startswith("it"):
+                return "it"
+            if loc.startswith("fr"):
+                return "fr"
+            return "en"
     try:
         loc = locale.getlocale()[0] or ""
     except ValueError:
         loc = ""
-    return "it" if loc.lower().startswith(("it", "italian")) else "en"
+    loc = loc.lower()
+    if loc.startswith(("it", "italian")):
+        return "it"
+    if loc.startswith(("fr", "french")):
+        return "fr"
+    return "en"
 
 
 def set_language(lang: str) -> str:

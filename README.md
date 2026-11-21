@@ -72,8 +72,8 @@ preview of the vertical pages on the right:
 The preview is drawn natively (page navigation with PgUp/PgDn or the mouse
 wheel, zoom with Ctrl+wheel or Ctrl +/-, fit page / fit width). Layout runs in
 the background, so the window stays responsive with long scores. The interface
-is in English and Italian (Language menu; detected automatically), and the
-engraved hand labels follow it (L.H./R.H., or the Italian M.S./M.D.). Settings and recent
+is in English, Italian and French (Language menu; detected automatically), and the
+engraved hand labels follow it (L.H./R.H., M.S./M.D., or M.G./M.D.). Settings and recent
 files are remembered in `%APPDATA%\vertSheet\settings.json`.
 
 ### Installation wizard
@@ -203,7 +203,7 @@ vertsheet/
   convert.py    optional MuseScore / Audiveris conversion
   gui.py        the window (Tkinter): settings sidebar + live preview
   preview.py    draws the display list on a Tk canvas
-  i18n.py       Italian / English interface strings
+  i18n.py       Italian / English / French interface strings
   app.py        entry point of vertSheet.exe (window, --uninstall)
   winsetup.py   per-user install / uninstall: files, shortcuts, "Open with",
                 PATH, Installed-apps entry, install.json manifest
