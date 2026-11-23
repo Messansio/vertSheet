@@ -235,9 +235,6 @@ Lyrics, chord symbols, figured bass, cross-staff beams and multi-bar rest
 symbols are not drawn. Printed images of music need an OMR program (see
 above), because vertSheet works from symbolic notation, not from pixels.
 
-Keep your own scores and their conversions in a `local/` folder: it is
-git-ignored, so they are never published by accident.
-
 ## Changes and license
 
 See [CHANGELOG.md](CHANGELOG.md). vertSheet is released under the
